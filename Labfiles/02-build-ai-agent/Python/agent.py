@@ -7,6 +7,7 @@ from pathlib import Path
 from azure.identity import DefaultAzureCredential
 from azure.ai.agents import AgentsClient
 from azure.ai.agents.models import FilePurpose, CodeInterpreterTool, ListSortOrder, MessageRole
+
 def main(): 
     # Clear the console
     os.system('cls' if os.name=='nt' else 'clear')
