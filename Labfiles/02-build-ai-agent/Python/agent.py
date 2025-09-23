@@ -11,16 +11,19 @@ from azure.ai.agents.models import FilePurpose, CodeInterpreterTool, ListSortOrd
 def main(): 
     # Clear the console
     os.system('cls' if os.name=='nt' else 'clear')
+    
     # Load environment variables from .env file
     load_dotenv()
     project_endpoint= os.getenv("PROJECT_ENDPOINT")
     model_deployment = os.getenv("MODEL_DEPLOYMENT_NAME")
+    
     # Display the data to be analyzed
     script_dir = Path(__file__).parent  # Get the directory of the script
     file_path = script_dir / 'data.txt'
     with file_path.open('r') as file:
         data = file.read() + "\n"
         print(data)
+        
     # Connect to the Agent client
     agent_client = AgentsClient(
         endpoint=project_endpoint,
@@ -86,7 +89,6 @@ def main():
                 last_msg = message.text_messages[-1]
                 print(f"{message.role}: {last_msg.text.value}\n")
     
-        # Clean up
         # Clean up
         agent_client.delete_agent(agent.id)
     
