@@ -2,6 +2,9 @@ import os
 from dotenv import load_dotenv
 
 # Add references
+from azure.identity import DefaultAzureCredential
+from azure.ai.agents import AgentsClient
+from azure.ai.agents.models import McpTool, ToolSet, ListSortOrder
 
 
 # Load environment variables from .env file
