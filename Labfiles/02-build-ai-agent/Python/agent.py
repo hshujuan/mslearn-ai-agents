@@ -33,9 +33,7 @@ def main():
     )
     with agent_client:
         # Upload the data file and create a CodeInterpreterTool
-        file = agent_client.files.upload_and_poll(
-     file_path=file_path, purpose=FilePurpose.AGENTS
-)
+        file = agent_client.files.upload_and_poll(file_path=file_path, purpose=FilePurpose.AGENTS)
         print(f"Uploaded {file.filename}")
         code_interpreter = CodeInterpreterTool(file_ids=[file.id])
 
